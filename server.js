@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://Lukasz:Lukasz@cluster0-nkzmu.mongodb.net/test?retryWrites=true');
+mongoose.connect('mongodb+srv://Lukasz:Lukasz@cluster0-nkzmu.mongodb.net/test?retryWrites=true', { useNewUrlParser: true } );
 
 //new user Schema
 const userSchema = new Schema({
@@ -142,6 +142,7 @@ const findBennyAndRemove = function() {
             });
         });
 }
+
 
 Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findAllUsers)
